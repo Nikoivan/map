@@ -1,16 +1,17 @@
 class ErrorRepository {
   constructor() {
-    this.error = new Map();
-    this.error.set(405, "Method Not Allowed");
-    this.error.set(404, "Not Found");
-    this.error.set(502, "Bad Gateway");
+    this.error = new Map([
+      [405, 'Method Not Allowed'],
+      [404, 'Not Found'],
+      [502, 'Bad Gateway'],
+    ]);
   }
 
   translate(code) {
     if (this.error.has(code)) {
       return this.error.get(code);
     }
-    return "Unknown error";
+    return 'Unknown error';
   }
 }
 
